@@ -1,3 +1,5 @@
+name: Deploy
+
 on:
   push:
     branches:
@@ -11,5 +13,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Publish
         uses: cloudflare/wrangler-action@1.2.0
+        env:
+          USER: root
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
